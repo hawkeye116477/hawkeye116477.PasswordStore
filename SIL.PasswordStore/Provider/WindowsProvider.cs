@@ -15,7 +15,7 @@ namespace SIL.Secrets.Provider
 
 		private static string GetTargetName(string service, string user)
 		{
-			return $"{service}:{user}";
+			return $"{service}/{user}";
 		}
 
 		public void SetPassword(string service, string user, string password)
