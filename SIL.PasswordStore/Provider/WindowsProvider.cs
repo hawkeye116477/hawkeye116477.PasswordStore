@@ -34,7 +34,8 @@ namespace SIL.Secrets.Provider
 				CredentialBlobSize = passwordLength,
 				CredentialBlob = Marshal.StringToCoTaskMemUni(password),
 				Persist = CredPersist.LocalMachine,
-				AttributeCount = 0
+				AttributeCount = 0,
+				UserName = user
 			};
 
 			var result = Native.CredWrite(ref credential, 0);
