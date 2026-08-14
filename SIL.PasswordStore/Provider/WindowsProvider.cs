@@ -13,10 +13,6 @@ namespace SIL.Secrets.Provider
 	{
 		private const int ErrorNotFound = 1168;
 
-		private static string GetTargetName(string service, string user)
-		{
-			return $"{service}/{user}";
-		}
 
 		public void SetPassword(string service, string user, string password)
 		{
@@ -29,7 +25,7 @@ namespace SIL.Secrets.Provider
 			var credential = new Credential {
 				Flags = 0,
 				Type = CredType.Generic,
-				TargetName = GetTargetName(service, user),
+				TargetName = service,
 				Comment = null,
 				CredentialBlobSize = (uint)passwordByteLength,
 				CredentialBlob = Marshal.StringToCoTaskMemUni(password),
@@ -52,7 +48,7 @@ namespace SIL.Secrets.Provider
 			if (string.IsNullOrEmpty(service))
 				throw new ArgumentNullException(nameof(service));
 
-			if (Native.CredRead(GetTargetName(service, user), CredType.Generic, 0,
+			if (Native.CredRead(service, CredType.Generic, 0,
 					out var credPtr))
 			{
 				using var credentialHandle = new CredentialHandle(credPtr);
@@ -83,7 +79,7 @@ namespace SIL.Secrets.Provider
 			if (string.IsNullOrEmpty(service))
 				throw new ArgumentNullException(nameof(service));
 
-			if (Native.CredDelete(GetTargetName(service, user), CredType.Generic, 0))
+			if (Native.CredDelete(service, CredType.Generic, 0))
 				return true;
 
 			var error = Marshal.GetLastWin32Error();
