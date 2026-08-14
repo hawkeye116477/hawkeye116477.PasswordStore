@@ -12,7 +12,7 @@ namespace SIL.Secrets
 	{
 		private static readonly IPasswordStoreImpl _provider;
 
-#if NET461
+#if NET462
 		private static string _unixName = string.Empty;
 		private static string UnixName
 		{
@@ -49,7 +49,7 @@ namespace SIL.Secrets
 
 		static PasswordStore()
 		{
-#if NET461
+#if NET462
 			if (Environment.OSVersion.Platform == PlatformID.Unix)
 			{
 				if (UnixName == "Linux")

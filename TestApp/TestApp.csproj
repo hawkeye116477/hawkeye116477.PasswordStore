@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
+    <TargetFramework>net462</TargetFramework>
+    <TargetFrameworks />
   </PropertyGroup>
 
   <ItemGroup>
