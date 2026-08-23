@@ -1,11 +1,14 @@
 # Cross-platform password store
 
-**SIL.PasswordStore** implements a cross-platform keyring for Windows and Linux
+**hawkeye116477.PasswordStore** implements a cross-platform keyring for Windows and Linux
 that allows to securely store passwords and other secrets. It uses the native libraries
 on each platform (libsecret-1 on Linux, WinCred on Windows).
 
-[![NuGet version (SIL.PasswordStore)](https://img.shields.io/nuget/v/SIL.PasswordStore.svg?style=flat-square)](https://www.nuget.org/packages/SIL.PasswordStore/)
-[![Build, Test and Pack](https://github.com/sillsdev/SIL.PasswordStore/actions/workflows/CI-CD.yml/badge.svg)](https://github.com/sillsdev/SIL.PasswordStore/actions/workflows/CI-CD.yml)
+### Note: This is my modified version of SIL.PasswordStore to use own target name for Windows instead of hard coded one. You can install it by typing following commands:
+```
+nuget source Add -Name "Hawkeye Nougat Registry" -Source "https://gitlab.com/api/v4/projects/85661048/packages/nuget/index.json"
+nuget install hawkeye116477.PasswordStore -Source "Hawkeye Nougat Registry"
+```
 
 ## When to use
 
